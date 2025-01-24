@@ -8,7 +8,8 @@ public class IcebergSinkJob {
         TableEnvironment tableEnv = TableEnvironment.create(settings);
 
         // Define the Iceberg JDBC Catalog
-        tableEnv.executeSql(""
+        tableEnv.executeSql(
+       ""
         );
 
         // Switch to the Iceberg catalog
@@ -16,7 +17,7 @@ public class IcebergSinkJob {
 
         // Create a table in the Iceberg catalog
         tableEnv.executeSql(
-            "CREATE TABLE TEST_INS (" +
+            "CREATE TABLE TEST_APPLE (" +
             "  column1 BIGINT" +
             ") WITH (" +
             "'write.format.default' = 'parquet'" +
@@ -24,6 +25,7 @@ public class IcebergSinkJob {
         );
 
         // Insert data into the table
-        tableEnv.executeSql("INSERT INTO TEST_INS VALUES (11134)");
+        tableEnv.executeSql("INSERT INTO TEST_APPLE VALUES (11134)");
+        tableEnv.executeSql("Select * from TEST_APPLE");
     }
 }
